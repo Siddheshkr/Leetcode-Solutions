@@ -24,4 +24,3 @@ public:
 };
 // @lc code=end
 
-c
