@@ -1,7 +1,7 @@
 /*
  * @lc app=leetcode id=229 lang=cpp
  *
- * [229] Majority Element II
+ * [229] Majority Element II (Medium)
  */
 
 // @lc code=start
