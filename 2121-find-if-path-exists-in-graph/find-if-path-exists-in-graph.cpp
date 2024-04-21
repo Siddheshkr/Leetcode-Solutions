@@ -7,22 +7,22 @@ public:
             graph[e[1]].push_back(e[0]);
         }
         vector<bool> visited(n,0);        
-        queue<int> q;
-        q.push(start);
+        stack<int> st;
+        st.push(start);
         visited[start] = 1; 
-        while(!q.empty()) {
-            int curr = q.front();
-            q.pop();
-            if(curr == end)
-                return 1; 
-            for(auto &node : graph[curr]){
+        
+        while(!st.empty()){ 
+            auto top = st.top();
+            if(top == end)
+                return 1;
+            st.pop();
+            for(auto node : graph[top]){
                 if(!visited[node]){
-                    visited[node] = 1; 
-                    q.push(node);
+                    visited[node] = 1;
+                    st.push(node); 
                 }
             }
         }
-        
         return false;
     }
 };
