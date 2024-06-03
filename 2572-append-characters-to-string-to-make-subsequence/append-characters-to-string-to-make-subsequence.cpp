@@ -1,16 +1,15 @@
 class Solution {
 public:
     int appendCharacters(string s, string t) {
-        int s_index = 0, t_index = 0;
-        int s_length = s.length(), t_length = t.length();
-    
-        while (s_index < s_length && t_index < t_length) {
-            if (s[s_index] == t[t_index]) {
-                t_index++;
+        int i = 0, j = 0;  // Start both pointers at the beginning of s and t
+        
+        while (i < s.length() && j < t.length()) {  // Continue until one of the strings is fully scanned
+            if (s[i] == t[j]) {  // If characters match
+                j++;  // Move the pointer in t forward
             }
-            s_index++;
+            i++;  // Always move the pointer in s forward
         }
-    
-        return t_length - t_index;
+        
+        return t.length() - j;  // The number of characters in t not matched in s
     }
 };
