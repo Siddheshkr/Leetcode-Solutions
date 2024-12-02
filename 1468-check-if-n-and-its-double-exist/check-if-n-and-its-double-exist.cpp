@@ -1,16 +1,21 @@
-#include <unordered_set>
-using namespace std;
+
 
 class Solution {
 public:
-    bool checkIfExist(vector<int>& arr) {
-        unordered_set<int> seen;
-        for (int num : arr) {
-            if (seen.count(num * 2) || (num % 2 == 0 && seen.count(num / 2))) {
-                return true;
-            }
-            seen.insert(num);
-        }
-        return false;
+  bool checkIfExist(vector<int>& arr) 
+{
+    unordered_map<int, int> mp;
+    for(int i = 0; i < arr.size(); i++)
+    {
+
+        if(mp.find(arr[i] * 2) != mp.end())
+            return true;
+        if(arr[i] % 2 == 0 && mp.find(arr[i]/2) != mp.end())
+            return true;
+        mp[arr[i]]++;
     }
+    
+    return false;
+}
+
 };
